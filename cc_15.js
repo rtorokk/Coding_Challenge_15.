@@ -34,13 +34,27 @@ document.addEventListener('DOMContentLoaded', function() {
         riskItem.querySelector('.remove-risk').addEventListener('click', function() {
             riskItem.remove();
         });
-        riskItem.addEventListener('click', function(event) {
-            event.stopPropagation();
-        });
 
         riskDashboard.appendChild(riskItem);
     }
     
+     // Task 5: Implementing Bulk Updates
+     const increaseRiskButton = document.createElement('button');
+     increaseRiskButton.textContent = 'Increase Risk Level';
+     increaseRiskButton.addEventListener('click', function() {
+         const riskItems = document.querySelectorAll('.risk-item');
+         riskItems.forEach(function(riskItem) {
+             if (riskItem.classList.contains('Low-risk')) {
+                 riskItem.classList.remove('Low-risk');
+                 riskItem.classList.add('Medium-risk');
+                 riskItem.querySelector('p').textContent = 'Risk Level: Medium';
+             } else if (riskItem.classList.contains('Medium-risk')) {
+                 riskItem.classList.remove('Medium-risk');
+                 riskItem.classList.add('High-risk');
+                 riskItem.querySelector('p').textContent = 'Risk Level: High';
+             }
+         });
+     });
     riskDashboard.appendChild(increaseRiskButton);
 
     // Test Cases for Task 2
@@ -51,7 +65,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Test Cases for Task 4
      addRiskItem("Cybersecurity Threat", "High", "IT");
      addRiskItem("HR Compliance Issue", "Low", "Human Resources");
+    // Test Cases for Task 5
+    addRiskItem("Employee Retention", "Low", "HR");
 });
+
+
 
 
 

@@ -34,6 +34,9 @@ document.addEventListener('DOMContentLoaded', function() {
         riskItem.querySelector('.remove-risk').addEventListener('click', function() {
             riskItem.remove();
         });
+        riskItem.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
 
         riskDashboard.appendChild(riskItem);
     }
@@ -68,8 +71,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Test Cases for Task 5
     addRiskItem("Employee Retention", "Low", "HR");
 });
-
-
-
-
 

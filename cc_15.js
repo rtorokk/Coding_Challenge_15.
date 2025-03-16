@@ -9,6 +9,19 @@ document.addEventListener('DOMContentLoaded', function() {
         const riskItem = document.createElement('div');
         riskItem.classList.add('risk-item');
 
+        // Task 4: Categorizing Risks by Level
+        switch(riskLevel) {
+            case 'Low':
+                riskItem.classList.add('Low-risk');
+                break;
+            case 'Medium':
+                riskItem.classList.add('Medium-risk');
+                break;
+            case 'High':
+                riskItem.classList.add('High-risk');
+                break;
+        }
+
         // Task 3: Removing Risk Items
         const riskContent = `
             <h3>${riskName}</h3>
@@ -35,6 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
     addRiskItem("Supply Chain Disruption", "Medium", "Operations");
     // Test Cases for Task 3
     addRiskItem("Market Fluctuations", "High", "Finance");
+    // Test Cases for Task 4
+     addRiskItem("Cybersecurity Threat", "High", "IT");
+     addRiskItem("HR Compliance Issue", "Low", "Human Resources");
 });
 
 
